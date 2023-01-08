@@ -1,7 +1,7 @@
 const {Builder, By, Key, until} = require('selenium-webdriver');
 const axios = require('axios');
 
-const readToken = ()=>{
+const readToken = () => {
     let json = require('../../resources/token.json');
     return json.token;
 }
@@ -30,7 +30,7 @@ const slackRun = async (messageText) => {
 
 }
 
-const example = async () => {
+const getHanaData = async () => {
     let driver = await new Builder().forBrowser('chrome').build();
     try {
 
@@ -102,4 +102,4 @@ const example = async () => {
     }
 }
 
-module.exports = example;
+module.exports = getHanaData;
