@@ -1,4 +1,5 @@
 const {Builder, By, Key, until} = require('selenium-webdriver');
+const { Options } = require('selenium-webdriver/chrome');
 const axios = require('axios');
 
 const readToken = () => {
@@ -32,8 +33,17 @@ const slackRun = async (messageText) => {
 
 const getHanaData = async () => {
     let driver = await new Builder().forBrowser('chrome').build();
-    try {
 
+    /*
+    for Docker image
+    let builder = new Builder().forBrowser('chrome');
+    let options = new Options();
+    options.headless();
+    options.excludeSwitches(['enable-logging']);
+    options.addArguments(['--no-sandbox']);
+    let driver = await builder.setChromeOptions(options).build();*/
+
+    try {
         await driver.manage().setTimeouts({implicit: 1000});
         // await driver.get('https://www.kebhana.com/cont/mall/mall15/mall1501/index.jsp');
         await driver.get('https://www.kebhana.com/cms/rate/index.do?contentUrl=/cms/rate/wpfxd651_01i.do');

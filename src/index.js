@@ -4,4 +4,4 @@ getHanaData();
 
 setInterval(() => {
     getHanaData();
-}, 600000);
+}, 3600000);
